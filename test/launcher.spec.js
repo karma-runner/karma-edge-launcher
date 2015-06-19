@@ -85,15 +85,6 @@ describe('launcher', function () {
       expect(options[options.length - 1]).to.equal('url')
       done()
     })
-
-    it('should convert x-ua-compatible arg to encoded url', function (done) {
-      module.args[1] = {
-        'x-ua-compatible': 'browser=mode'
-      }
-      var options = getOptions('url', module)
-      expect(options[options.length - 1]).to.equal('url?x-ua-compatible=browser%3Dmode')
-      done()
-    })
   })
 
   describe('locating iexplore.exe', function () {

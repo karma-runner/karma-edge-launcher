@@ -38,25 +38,6 @@ function IEBrowser (baseBrowserDecorator, logger, args) {
   var log = logger.create('launcher')
   var flags = args.flags || []
 
-  // Handle x-ua-compatible option:
-  //
-  // Usage :
-  //   customLaunchers: {
-  //     IE9: {
-  //       base: 'IE',
-  //       'x-ua-compatible': 'IE=EmulateIE9'
-  //     }
-  //   }
-  //
-  // This is done by passing the option on the url, in response the Karma server will
-  // set the following meta in the page.
-  //   <meta http-equiv="X-UA-Compatible" content="[VALUE]"/>
-  function handleXUaCompatible (args, urlObj) {
-    if (args['x-ua-compatible']) {
-      urlObj.query['x-ua-compatible'] = args['x-ua-compatible']
-    }
-  }
-
   // Spawning iexplore.exe spawns two processes (IE does that). The way karma kills the
   // browser process (hard kill) leaves the other process in memory.
   //
@@ -87,8 +68,6 @@ function IEBrowser (baseBrowserDecorator, logger, args) {
 
   this._getOptions = function (url) {
     var urlObj = urlparse(url, true)
-
-    handleXUaCompatible(args, urlObj)
 
     // url.format does not want search attribute
     delete urlObj.search

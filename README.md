@@ -30,21 +30,6 @@ You can pass list of browsers as a CLI argument too:
 karma start --browsers IE
 ```
 
-You can run IE in emulation mode by setting the 'x-ua-compatible' option:
-```js
-customLaunchers: {
-  IE9: {
-    base: 'IE',
-    'x-ua-compatible': 'IE=EmulateIE9'
-  },
-  IE8: {
-    base: 'IE',
-    'x-ua-compatible': 'IE=EmulateIE8'
-  }
-}
-```
-See [Specifying legacy document modes] on MSDN.
-
 ### Running IE in "No add-ons mode"
 
 Please note that since **v0.2.0** default behaviour of launching Internet Explorer has changed.
