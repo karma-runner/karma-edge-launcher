@@ -69,70 +69,16 @@ describe('launcher', function () {
       }
     })
 
-    it('should include args.flags', function (done) {
+    it('should include 3 arguments (2 from the Edge command and 1 for the url)', function (done) {
       var options
-      module.args[1] = {
-        flags: ['-flag1', '-flag2']
-      }
       options = getOptions('url', module)
-      expect(options[0]).to.equal('-flag1')
-      expect(options[1]).to.equal('-flag2')
+      expect(options).to.have.length(3)
       done()
     })
 
     it('should return url as the last flag', function (done) {
       var options = getOptions('url', module)
       expect(options[options.length - 1]).to.equal('url')
-      done()
-    })
-  })
-
-  describe('locating iexplore.exe', function () {
-    var fsMock, win32Location
-
-    beforeEach(function () {
-      process.env['PROGRAMW6432'] = '\\fake\\PROGRAMW6432'
-      process.env['PROGRAMFILES(X86)'] = '\\fake\\PROGRAMFILES(X86)'
-      process.env['PROGRAMFILES'] = '\\fake\\PROGRAMFILES'
-      fsMock = mocks.fs.create({
-        'folder1': {
-          'Internet Explorer': {
-            'iexplore.exe': 1
-          }
-        }
-      })
-
-      IELauncher = mocks.loadFile(__dirname + '/../index', {
-        fs: fsMock
-      }).module.exports
-
-      win32Location = function () {
-        injector = new di.Injector([module, IELauncher])
-        launcher = injector.get('launcher:IE')
-        return launcher._getInternetExplorerExe()
-      }
-    })
-
-    it('should locate in PROGRAMW6432', function (done) {
-      process.env['' + 'PROGRAMW6432'] = '\\folder1'
-      expect(win32Location()).to.equal('\\folder1\\Internet Explorer\\iexplore.exe')
-      done()
-    })
-
-    it('should locate in PROGRAMFILES(X86)', function (done) {
-      process.env['' + 'PROGRAMFILES(X86)'] = '\\folder1'
-      expect(win32Location()).to.equal('\\folder1\\Internet Explorer\\iexplore.exe')
-      done()
-    })
-
-    it('should locate in PROGRAMFILES', function (done) {
-      process.env['' + 'PROGRAMFILES'] = '\\folder1'
-      expect(win32Location()).to.equal('\\folder1\\Internet Explorer\\iexplore.exe')
-      done()
-    })
-
-    it('should return undefined when not found', function (done) {
-      expect(win32Location()).to.equal(void 0)
       done()
     })
   })
