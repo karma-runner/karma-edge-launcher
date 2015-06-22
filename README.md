@@ -1,9 +1,9 @@
 # karma-ie-launcher
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/karma-runner/karma-ie-launcher)
- [![npm version](https://img.shields.io/npm/v/karma-ie-launcher.svg?style=flat-square)](https://www.npmjs.com/package/karma-ie-launcher) [![npm downloads](https://img.shields.io/npm/dm/karma-ie-launcher.svg?style=flat-square)](https://www.npmjs.com/package/karma-ie-launcher)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/nicolasmccurdy/karma-edge-launcher)
+ [![npm version](https://img.shields.io/npm/v/karma-edge-launcher.svg?style=flat-square)](https://www.npmjs.com/package/karma-edge-launcher) [![npm downloads](https://img.shields.io/npm/dm/karma-edge-launcher.svg?style=flat-square)](https://www.npmjs.com/package/karma-edge-launcher)
 
-[![Build Status](https://img.shields.io/travis/karma-runner/karma-ie-launcher/master.svg?style=flat-square)](https://travis-ci.org/karma-runner/karma-ie-launcher) [![Dependency Status](https://img.shields.io/david/karma-runner/karma-ie-launcher.svg?style=flat-square)](https://david-dm.org/karma-runner/karma-ie-launcher) [![devDependency Status](https://img.shields.io/david/dev/karma-runner/karma-ie-launcher.svg?style=flat-square)](https://david-dm.org/karma-runner/karma-ie-launcher#info=devDependencies)
+[![Build Status](https://img.shields.io/travis/nicolasmccurdy/karma-edge-launcher/master.svg?style=flat-square)](https://travis-ci.org/nicolasmccurdy/karma-edge-launcher) [![Dependency Status](https://img.shields.io/david/nicolasmccurdy/karma-edge-launcher.svg?style=flat-square)](https://david-dm.org/nicolasmccurdy/karma-edge-launcher) [![devDependency Status](https://img.shields.io/david/dev/nicolasmccurdy/karma-edge-launcher.svg?style=flat-square)](https://david-dm.org/nicolasmccurdy/karma-edge-launcher#info=devDependencies)
 
 > Launcher for Internet Explorer.
 
