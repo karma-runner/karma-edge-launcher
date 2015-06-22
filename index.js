@@ -4,39 +4,26 @@
 // Dependencies
 // ------------
 
-var fs = require('fs')
 var urlparse = require('url').parse
 var urlformat = require('url').format
 var exec = require('child_process').exec
-var _ = require('lodash')
 
 // Constants
 // ---------
 
 var PROCESS_NAME = 'iexplore.exe'
 
-// Find the ie executable
-function getInternetExplorerExe () {
-  var suffix = '\\Internet Explorer\\' + PROCESS_NAME
-  var locations = _.map(_.compact([
-    process.env['PROGRAMW6432'],
-    process.env['PROGRAMFILES(X86)'],
-    process.env['PROGRAMFILES']
-  ]), function (prefix) {
-    return prefix + suffix
-  })
-
-  return _.find(locations, function (location) {
-    return fs.existsSync(location)
-  })
-}
+var EDGE_COMMAND = [
+  'powershell',
+  'start',
+  'shell:AppsFolder\\Microsoft.Windows.Spartan_cw5n1h2txyewy!Microsoft.Spartan.Spartan'
+]
 
 // Constructor
-function IEBrowser (baseBrowserDecorator, logger, args) {
+function IEBrowser (baseBrowserDecorator, logger) {
   baseBrowserDecorator(this)
 
   var log = logger.create('launcher')
-  var flags = args.flags || []
 
   // Spawning iexplore.exe spawns two processes (IE does that). The way karma kills the
   // browser process (hard kill) leaves the other process in memory.
@@ -73,7 +60,7 @@ function IEBrowser (baseBrowserDecorator, logger, args) {
     delete urlObj.search
     url = urlformat(urlObj)
 
-    return flags.concat(url)
+    return EDGE_COMMAND.splice(1).concat(url)
   }
 
   var baseOnProcessExit = this._onProcessExit
@@ -85,20 +72,17 @@ function IEBrowser (baseBrowserDecorator, logger, args) {
       }
     })
   }
-
-  // this is to expose the function for unit testing
-  this._getInternetExplorerExe = getInternetExplorerExe
 }
 
 IEBrowser.prototype = {
   name: 'IE',
   DEFAULT_CMD: {
-    win32: getInternetExplorerExe()
+    win32: EDGE_COMMAND[0]
   },
   ENV_CMD: 'IE_BIN'
 }
 
-IEBrowser.$inject = ['baseBrowserDecorator', 'logger', 'args']
+IEBrowser.$inject = ['baseBrowserDecorator', 'logger']
 
 // Publish di module
 // -----------------
