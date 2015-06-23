@@ -16,9 +16,6 @@
     "ie"
   ],
   "author": "Vojta Jina <vojta.jina@gmail.com>",
-  "dependencies": {
-    "lodash": "^3.9.3"
-  },
   "peerDependencies": {
     "karma": ">=0.9"
   },
