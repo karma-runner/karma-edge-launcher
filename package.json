@@ -1,19 +1,21 @@
 {
-  "name": "karma-ie-launcher",
+  "name": "karma-edge-launcher",
   "version": "0.2.0",
-  "description": "A Karma plugin. Launcher for Internet Explorer.",
+  "description": "A Karma plugin. Launcher for Microsoft Edge.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/karma-runner/karma-ie-launcher.git"
+    "url": "git://github.com/karma-runner/karma-edge-launcher.git"
   },
   "keywords": [
     "karma-plugin",
     "karma-launcher",
-    "ie"
+    "microsoft",
+    "edge",
+    "spartan"
   ],
   "author": "Vojta Jina <vojta.jina@gmail.com>",
   "peerDependencies": {

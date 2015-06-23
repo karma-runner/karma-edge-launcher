@@ -1,18 +1,18 @@
-# karma-ie-launcher
+# karma-edge-launcher
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/nicolasmccurdy/karma-edge-launcher)
  [![npm version](https://img.shields.io/npm/v/karma-edge-launcher.svg?style=flat-square)](https://www.npmjs.com/package/karma-edge-launcher) [![npm downloads](https://img.shields.io/npm/dm/karma-edge-launcher.svg?style=flat-square)](https://www.npmjs.com/package/karma-edge-launcher)
 
 [![Build Status](https://img.shields.io/travis/nicolasmccurdy/karma-edge-launcher/master.svg?style=flat-square)](https://travis-ci.org/nicolasmccurdy/karma-edge-launcher) [![Dependency Status](https://img.shields.io/david/nicolasmccurdy/karma-edge-launcher.svg?style=flat-square)](https://david-dm.org/nicolasmccurdy/karma-edge-launcher) [![devDependency Status](https://img.shields.io/david/dev/nicolasmccurdy/karma-edge-launcher.svg?style=flat-square)](https://david-dm.org/nicolasmccurdy/karma-edge-launcher#info=devDependencies)
 
-> Launcher for Internet Explorer.
+> Launcher for Microsoft Edge.
 
 ## Installation
 
-The easiest way is to keep `karma-ie-launcher` as a devDependency, by running
+The easiest way is to keep `karma-edge-launcher` as a devDependency, by running
 
 ```bash
-npm install karma-ie-launcher --save-dev
+npm install karma-edge-launcher --save-dev
 ```
 
 ### Enabling Loopback Address Access
@@ -30,14 +30,14 @@ This only needs to be run once per Windows install. You can check your exemption
 // karma.conf.js
 module.exports = function(config) {
   config.set({
-    browsers: ['IE']
+    browsers: ['Edge']
   });
 };
 ```
 
 You can pass list of browsers as a CLI argument too:
 ```bash
-karma start --browsers IE
+karma start --browsers Edge
 ```
 
 ----

@@ -1,4 +1,4 @@
-// Karme IE Launcher
+// Karme Edge Launcher
 // =================
 
 // Dependencies
@@ -11,7 +11,7 @@ var exec = require('child_process').exec
 // Constants
 // ---------
 
-var PROCESS_NAME = 'iexplore.exe'
+var PROCESS_NAME = 'spartan.exe'
 
 var EDGE_COMMAND = [
   'powershell',
@@ -20,7 +20,7 @@ var EDGE_COMMAND = [
 ]
 
 // Constructor
-function IEBrowser (baseBrowserDecorator, logger) {
+function EdgeBrowser (baseBrowserDecorator, logger) {
   baseBrowserDecorator(this)
 
   var log = logger.create('launcher')
@@ -74,19 +74,19 @@ function IEBrowser (baseBrowserDecorator, logger) {
   }
 }
 
-IEBrowser.prototype = {
-  name: 'IE',
+EdgeBrowser.prototype = {
+  name: 'Edge',
   DEFAULT_CMD: {
     win32: EDGE_COMMAND[0]
   },
-  ENV_CMD: 'IE_BIN'
+  ENV_CMD: 'EDGE_BIN'
 }
 
-IEBrowser.$inject = ['baseBrowserDecorator', 'logger']
+EdgeBrowser.$inject = ['baseBrowserDecorator', 'logger']
 
 // Publish di module
 // -----------------
 
 module.exports = {
-  'launcher:IE': ['type', IEBrowser]
+  'launcher:Edge': ['type', EdgeBrowser]
 }
