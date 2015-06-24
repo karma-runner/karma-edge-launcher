@@ -7,6 +7,8 @@
 
 > Launcher for Microsoft Edge.
 
+This is a fork of the [launcher for Internet Explorer](https://github.com/karma-runner/karma-ie-launcher).
+
 ## Installation
 
 The easiest way is to keep `karma-edge-launcher` as a devDependency, by running
