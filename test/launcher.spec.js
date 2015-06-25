@@ -82,39 +82,4 @@ describe('launcher', function () {
       done()
     })
   })
-
-  describe('_onProcessExit', function () {
-    var child_processCmd, onProcessExit
-
-    beforeEach(function () {
-      onProcessExit = function () {
-        var child_processMock
-        child_processMock = {
-          exec: function (cmd, cb) {
-            child_processCmd = cmd
-            cb()
-          }
-        }
-
-        EdgeLauncher = mocks.loadFile(__dirname + '/../index', {
-          child_process: child_processMock
-        }).module.exports
-        injector = new di.Injector([module, EdgeLauncher])
-        launcher = injector.get('launcher:Edge')
-        launcher._process = {
-          pid: 10
-        }
-        launcher._onProcessExit(1, 2)
-      }
-    })
-
-    it('should call wmic with process ID', function (done) {
-      onProcessExit()
-      expect(child_processCmd).to.equal(
-        'wmic.exe Path win32_Process where ' +
-        '"Name=\'spartan.exe\' and CommandLine Like \'%SCODEF:10%\'" call Terminate'
-      )
-      done()
-    })
-  })
 })
