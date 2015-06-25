@@ -6,12 +6,9 @@
 
 var urlparse = require('url').parse
 var urlformat = require('url').format
-var exec = require('child_process').exec
 
 // Constants
 // ---------
-
-var PROCESS_NAME = 'spartan.exe'
 
 var EDGE_COMMAND = [
   'powershell',
@@ -20,10 +17,8 @@ var EDGE_COMMAND = [
 ]
 
 // Constructor
-function EdgeBrowser (baseBrowserDecorator, logger) {
+function EdgeBrowser (baseBrowserDecorator) {
   baseBrowserDecorator(this)
-
-  var log = logger.create('launcher')
 
   this._getOptions = function (url) {
     var urlObj = urlparse(url, true)
@@ -44,7 +39,7 @@ EdgeBrowser.prototype = {
   ENV_CMD: 'EDGE_BIN'
 }
 
-EdgeBrowser.$inject = ['baseBrowserDecorator', 'logger']
+EdgeBrowser.$inject = ['baseBrowserDecorator']
 
 // Publish di module
 // -----------------
