@@ -16,6 +16,8 @@ var EDGE_COMMAND = [
   'shell:AppsFolder\\Microsoft.Windows.Spartan_cw5n1h2txyewy!Microsoft.Spartan.Spartan'
 ]
 
+var TIMEOUT = 1000
+
 // Constructor
 function EdgeBrowser (baseBrowserDecorator) {
   baseBrowserDecorator(this)
@@ -28,6 +30,13 @@ function EdgeBrowser (baseBrowserDecorator) {
     url = urlformat(urlObj)
 
     return EDGE_COMMAND.splice(1).concat(url)
+  }
+
+  var baseOnProcessExit = this._onProcessExit
+  this._onProcessExit = function (code, errorOutput) {
+    setTimeout(function () {
+      baseOnProcessExit(code, errorOutput)
+    }, TIMEOUT)
   }
 }
 
