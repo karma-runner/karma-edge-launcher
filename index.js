@@ -13,7 +13,7 @@ var urlformat = require('url').format
 var EDGE_COMMAND = [
   'powershell',
   'start',
-  'shell:AppsFolder\\Microsoft.Windows.Spartan_cw5n1h2txyewy!Microsoft.Spartan.Spartan'
+  'shell:AppsFolder\\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge'
 ]
 
 var TIMEOUT = 1000
