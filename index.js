@@ -1,4 +1,4 @@
-// Karme Edge Launcher
+// Karma Edge Launcher
 // =================
 
 // Dependencies
