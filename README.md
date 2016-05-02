@@ -9,6 +9,9 @@
 
 This is a fork of the [launcher for Internet Explorer](https://github.com/karma-runner/karma-ie-launcher).
 
+## Status
+__This is in development.__ There are no published versions on npm yet. The tool may be partially useful from the master branch at this point, but consider it unstable software.
+
 ## Installation
 
 The easiest way is to keep `karma-edge-launcher` as a devDependency, by running
