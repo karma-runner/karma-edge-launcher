@@ -20,16 +20,6 @@ The easiest way is to keep `karma-edge-launcher` as a devDependency, by running
 npm install karma-edge-launcher --save-dev
 ```
 
-### Enabling Loopback Address Access
-By default, Edge does not have access to the loopback address, which prevents Edge from accessing `localhost` and, as a result, Karma. This is a known issue with Edge. For now, you must add an exception to give Edge access to your local instance of Karma.
-
-Open PowerShell as an administrator and run this command:
-```
-CheckNetIsolation LoopbackExempt -a -n='Microsoft.Windows.Spartan_cw5n1h2txyewy'
-```
-
-This only needs to be run once per Windows install. You can check your exemptions with `CheckNetIsolation LoopbackExempt -s`.
-
 ## Configuration
 ```js
 // karma.conf.js
