@@ -1,5 +1,5 @@
 {
-  "name": "karma-edge-launcher",
+  "private": true,
   "version": "0.1.0",
   "description": "A Karma plugin. Launcher for Microsoft Edge.",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/karma-runner/karma-edge-launcher.git"
+    "url": "git://github.com/nicolasmccurdy/karma-edge-launcher"
   },
   "keywords": [
     "karma-plugin",
