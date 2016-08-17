@@ -69,16 +69,9 @@ describe('launcher', function () {
       }
     })
 
-    it('should include 3 arguments (2 from the Edge command and 1 for the url)', function (done) {
-      var options
-      options = getOptions('url', module)
-      expect(options).to.have.length(3)
-      done()
-    })
-
-    it('should return url as the last flag', function (done) {
+    it('should return the given URL and a keepalive flag for launching Edge', function (done) {
       var options = getOptions('url', module)
-      expect(options[options.length - 1]).to.equal('url')
+      expect(options).to.deep.equal(['url', '-k'])
       done()
     })
   })
