@@ -1,23 +1,12 @@
 // Karma Edge Launcher
 // =================
 
-// Dependencies
-// ------------
-
-var urlparse = require('url').parse
-var urlformat = require('url').format
-
 // Constructor
 function EdgeBrowser (baseBrowserDecorator) {
   baseBrowserDecorator(this)
 
   this._getOptions = function (url) {
-    var urlObj = urlparse(url, true)
-
-    // url.format does not want search attribute
-    delete urlObj.search
-
-    return [urlformat(urlObj), '-k']
+    return [url, '-k']
   }
 }
 
