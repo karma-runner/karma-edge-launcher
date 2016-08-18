@@ -1,6 +1,7 @@
 var path = require('path')
 var di = require('di')
 var mocks = require('mocks')
+var os = require('os')
 
 describe('launcher', function () {
   var EventEmitter, EdgeLauncher, injector, launcher, module
@@ -38,6 +39,20 @@ describe('launcher', function () {
   })
 
   describe('initialization', function () {
+    // These tests run from the home directory to ensure that the launcher is
+    // initialized properly regardless of the working directory
+
+    var previousdir
+
+    before(function () {
+      previousdir = process.cwd()
+      process.chdir(os.homedir())
+    })
+
+    after(function () {
+      process.chdir(previousdir)
+    })
+
     beforeEach(function () {
       injector = new di.Injector([module, EdgeLauncher])
       launcher = injector.get('launcher:Edge')
