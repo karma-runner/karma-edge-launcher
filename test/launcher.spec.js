@@ -1,7 +1,7 @@
 var path = require('path')
 var di = require('di')
 var mocks = require('mocks')
-var os = require('os')
+var osHomedir = require('os-homedir')
 
 describe('launcher', function () {
   var EventEmitter, EdgeLauncher, injector, launcher, module
@@ -46,7 +46,7 @@ describe('launcher', function () {
 
     before(function () {
       previousdir = process.cwd()
-      process.chdir(os.homedir())
+      process.chdir(osHomedir())
     })
 
     after(function () {
