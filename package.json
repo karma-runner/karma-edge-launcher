@@ -1,5 +1,6 @@
 {
   "private": true,
+  "name": "karma-edge-launcher",
   "version": "0.1.0",
   "description": "A Karma plugin. Launcher for Microsoft Edge.",
   "main": "index.js",
