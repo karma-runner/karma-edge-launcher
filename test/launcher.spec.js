@@ -54,7 +54,7 @@ describe('launcher', function () {
     })
 
     it('should initialize DEFAULT_CMD.win32', function (done) {
-      expect(launcher.DEFAULT_CMD.win32).to.beDefined
+      expect(launcher.DEFAULT_CMD.win32).to.be.a.file()
       done()
     })
   })
