@@ -19,6 +19,9 @@
     "spartan"
   ],
   "author": "Vojta Jina <vojta.jina@gmail.com>",
+  "dependencies": {
+    "edge-launcher": "1.0.1"
+  },
   "peerDependencies": {
     "karma": ">=0.9"
   },

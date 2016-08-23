@@ -18,7 +18,7 @@ function EdgeBrowser (baseBrowserDecorator) {
 EdgeBrowser.prototype = {
   name: 'Edge',
   DEFAULT_CMD: {
-    win32: path.join(__dirname, 'MicrosoftEdgeLauncher.exe')
+    win32: path.join(__dirname, 'node_modules/edge-launcher/Win32/MicrosoftEdgeLauncher.exe')
   },
   ENV_CMD: 'EDGE_BIN'
 }
