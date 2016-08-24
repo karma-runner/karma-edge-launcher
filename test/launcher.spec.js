@@ -1,6 +1,7 @@
 var path = require('path')
 var di = require('di')
 var mocks = require('mocks')
+var osHomedir = require('os-homedir')
 
 describe('launcher', function () {
   var EventEmitter, EdgeLauncher, injector, launcher, module
@@ -38,6 +39,20 @@ describe('launcher', function () {
   })
 
   describe('initialization', function () {
+    // These tests run from the home directory to ensure that the launcher is
+    // initialized properly regardless of the working directory
+
+    var previousdir
+
+    before(function () {
+      previousdir = process.cwd()
+      process.chdir(osHomedir())
+    })
+
+    after(function () {
+      process.chdir(previousdir)
+    })
+
     beforeEach(function () {
       injector = new di.Injector([module, EdgeLauncher])
       launcher = injector.get('launcher:Edge')
@@ -54,7 +69,7 @@ describe('launcher', function () {
     })
 
     it('should initialize DEFAULT_CMD.win32', function (done) {
-      expect(launcher.DEFAULT_CMD.win32).to.beDefined
+      expect(launcher.DEFAULT_CMD.win32).to.be.a.file()
       done()
     })
   })
@@ -70,16 +85,9 @@ describe('launcher', function () {
       }
     })
 
-    it('should include 3 arguments (2 from the Edge command and 1 for the url)', function (done) {
-      var options
-      options = getOptions('url', module)
-      expect(options).to.have.length(3)
-      done()
-    })
-
-    it('should return url as the last flag', function (done) {
+    it('should return the given URL and a keepalive flag for launching Edge', function (done) {
       var options = getOptions('url', module)
-      expect(options[options.length - 1]).to.equal('url')
+      expect(options).to.deep.equal(['url', '-k'])
       done()
     })
   })

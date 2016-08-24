@@ -19,12 +19,17 @@
     "spartan"
   ],
   "author": "Vojta Jina <vojta.jina@gmail.com>",
+  "dependencies": {
+    "edge-launcher": "1.0.1",
+    "resolve": "^1.1.7"
+  },
   "peerDependencies": {
     "karma": ">=0.9"
   },
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.5.0",
+    "chai-fs": "^0.1.0",
     "di": "^0.0.1",
     "eslint": "^2.4.0",
     "eslint-config-standard": "^5.1.0",
@@ -43,6 +48,7 @@
     "karma": "1.x || ^0.13.22",
     "load-grunt-tasks": "^3.2.0",
     "mocks": "0.0.15",
+    "os-homedir": "^1.0.1",
     "sinon": "^1.14.1",
     "sinon-chai": "^2.8.0"
   },

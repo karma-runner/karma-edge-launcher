@@ -7,6 +7,7 @@ global.should = chai.should()
 global.sinon = sinon
 
 // chai plugins
+chai.use(require('chai-fs'))
 chai.use(require('sinon-chai'))
 
 beforeEach(function () {
