@@ -6,10 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/nickmccurdy/karma-edge-launcher.git"
-  },
+  "repository": "nickmccurdy/karma-edge-launcher",
   "keywords": [
     "karma-plugin",
     "karma-launcher",
