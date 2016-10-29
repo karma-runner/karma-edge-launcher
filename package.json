@@ -22,6 +22,8 @@
     "karma": ">=0.9"
   },
   "license": "MIT",
+  "bugs": "https://github.com/nickmccurdy/karma-edge-launcher/issues",
+  "homepage": "https://github.com/nickmccurdy/karma-edge-launcher",
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-fs": "^0.1.0",
