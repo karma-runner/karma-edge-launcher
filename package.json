@@ -16,7 +16,7 @@
     "microsoft",
     "edge"
   ],
-  "author": "Vojta Jina <vojta.jina@gmail.com>",
+  "author": "Nick McCurdy <thenickperson@gmail.com> (http://nickmccurdy.com/)",
   "dependencies": {
     "edge-launcher": "1.0.1",
     "resolve": "^1.1.7"
@@ -51,6 +51,7 @@
     "sinon-chai": "^2.8.0"
   },
   "contributors": [
+    "Vojta Jina <vojta.jina@gmail.com>",
     "sarychev <dizel3d@gmail.com>",
     "Mark Ethan Trostler <mark@zzo.com>",
     "sylvain-hamel <sylvainhamel0@gmail.com>",
