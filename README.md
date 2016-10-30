@@ -10,7 +10,7 @@
 This is a fork of the [launcher for Internet Explorer](https://github.com/karma-runner/karma-ie-launcher).
 
 ## Status
-In development, with pre-1.0 versions now available on the npm registry. It should work well in most cases but it has not been thoroughly tested. It is a known issue that Edge stays open after the plugin runs (see #7).
+In development, with pre-1.0 versions now available on the npm registry. It should work well in most cases but it has not been thoroughly tested. It is a known issue that Edge stays open after the plugin runs (see [issue #7](https://github.com/nickmccurdy/karma-edge-launcher/issues/7)).
 
 ## Installation
 
