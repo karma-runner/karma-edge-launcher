@@ -1,11 +1,6 @@
 // Karma Edge Launcher
 // =================
 
-// Dependencies
-// ------------
-
-var resolve = require('resolve')
-
 // Constructor
 function EdgeBrowser (baseBrowserDecorator) {
   baseBrowserDecorator(this)
@@ -18,7 +13,7 @@ function EdgeBrowser (baseBrowserDecorator) {
 EdgeBrowser.prototype = {
   name: 'Edge',
   DEFAULT_CMD: {
-    win32: resolve.sync('edge-launcher/Win32/MicrosoftEdgeLauncher.exe')
+    win32: require.resolve('edge-launcher/Win32/MicrosoftEdgeLauncher.exe')
   },
   ENV_CMD: 'EDGE_BIN'
 }
