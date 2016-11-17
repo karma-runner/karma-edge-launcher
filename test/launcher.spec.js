@@ -81,7 +81,7 @@ describe('launcher', function () {
       getOptions = function (url, module) {
         injector = new di.Injector([module, EdgeLauncher])
         launcher = injector.get('launcher:Edge')
-        return launcher._getOptions('url')
+        return launcher._getOptions(url)
       }
     })
 
