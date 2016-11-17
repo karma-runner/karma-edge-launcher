@@ -1,6 +1,4 @@
-var path = require('path')
 var di = require('di')
-var mocks = require('mocks')
 var osHomedir = require('os-homedir')
 
 describe('launcher', function () {
@@ -8,7 +6,7 @@ describe('launcher', function () {
 
   beforeEach(function () {
     EventEmitter = require('../node_modules/karma/lib/events').EventEmitter
-    EdgeLauncher = mocks.loadFile(path.join(__dirname, '/../index')).module.exports
+    EdgeLauncher = require('..')
     module = {
       baseBrowserDecorator: ['value', function () {}],
       emitter: ['value', new EventEmitter()],
