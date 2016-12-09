@@ -1,12 +1,22 @@
 // Karma Edge Launcher
 // =================
 
+// Dependencies
+// ------------
+
+var exec = require('child_process').execSync
+
 // Constructor
 function EdgeBrowser (baseBrowserDecorator) {
   baseBrowserDecorator(this)
 
   this._getOptions = function (url) {
     return [url, '-k']
+  }
+  var baseOnProcessExit = this._onProcessExit
+  this._onProcessExit = function () {
+    exec('taskkill /t /f /im ' + 'MicrosoftEdge.exe')
+    this._onProcessExit = baseOnProcessExit
   }
 }
 
