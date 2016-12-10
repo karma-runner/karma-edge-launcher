@@ -15,8 +15,7 @@
   ],
   "author": "Nick McCurdy <thenickperson@gmail.com> (http://nickmccurdy.com/)",
   "dependencies": {
-    "edge-launcher": "1.0.1",
-    "resolve": "^1.1.7"
+    "edge-launcher": "1.0.1"
   },
   "peerDependencies": {
     "karma": ">=0.9"
@@ -44,7 +43,6 @@
     "grunt-simple-mocha": "^0.4.0",
     "karma": "1.x || ^0.13.22",
     "load-grunt-tasks": "^3.2.0",
-    "mocks": "0.0.15",
     "os-homedir": "^1.0.1",
     "sinon": "^1.14.1",
     "sinon-chai": "^2.8.0"
