@@ -2,26 +2,11 @@ var di = require('di')
 var osHomedir = require('os-homedir')
 
 describe('launcher', function () {
-  var EventEmitter, EdgeLauncher, injector, launcher, module
+  var EdgeLauncher, injector, launcher, module
 
   beforeEach(function () {
-    EventEmitter = require('../node_modules/karma/lib/events').EventEmitter
     EdgeLauncher = require('..')
-    module = {
-      baseBrowserDecorator: ['value', function () {}],
-      emitter: ['value', new EventEmitter()],
-      logger: [
-        'value', {
-          create: function () {
-            return {
-              error: function () {},
-              debug: function () {}
-            }
-          }
-        }
-      ],
-      args: ['value', []]
-    }
+    module = { baseBrowserDecorator: ['value', function () {}] }
   })
 
   afterEach(function () {
