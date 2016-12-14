@@ -1,5 +1,6 @@
 var di = require('di')
 var osHomedir = require('os-homedir')
+var proxyquire = require('proxyquire')
 
 describe('launcher', function () {
   var EventEmitter, EdgeLauncher, injector, launcher, module
@@ -86,6 +87,35 @@ describe('launcher', function () {
     it('should return the given URL and a keepalive flag for launching Edge', function (done) {
       var options = getOptions('url', module)
       expect(options).to.deep.equal(['url', '-k'])
+      done()
+    })
+  })
+
+  describe('_onProcessExit', function () {
+    var childProcessCmd, onProcessExit
+
+    beforeEach(function () {
+      onProcessExit = function () {
+        var childProcessMock
+        childProcessMock = {
+          exec: function (cmd, cb) {
+            childProcessCmd = cmd
+            cb()
+          }
+        }
+
+        EdgeLauncher = proxyquire('..', {
+          child_process: childProcessMock
+        })
+        injector = new di.Injector([module, EdgeLauncher])
+        launcher = injector.get('launcher:Edge')
+        launcher._onProcessExit(1, 2)
+      }
+    })
+
+    it('should call taskkill', function (done) {
+      onProcessExit()
+      expect(childProcessCmd).to.equal('taskkill /t /f /im MicrosoftEdge.exe')
       done()
     })
   })
