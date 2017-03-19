@@ -7,7 +7,19 @@ describe('launcher', function () {
 
   beforeEach(function () {
     EdgeLauncher = require('..')
-    module = { baseBrowserDecorator: ['value', function () {}] }
+    module = {
+      baseBrowserDecorator: ['value', function () {}],
+      logger: [
+        'value', {
+          create: function () {
+            return {
+              error: function () {},
+              debug: function () {}
+            }
+          }
+        }
+      ]
+    }
   })
 
   afterEach(function () {
