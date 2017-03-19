@@ -4,7 +4,7 @@
   "description": "A Karma plugin. Launcher for Microsoft Edge.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "grunt"
   },
   "repository": "nickmccurdy/karma-edge-launcher",
   "keywords": [
@@ -38,6 +38,7 @@
     "grunt": "^0.4.1",
     "grunt-auto-release": "^0.0.6",
     "grunt-bump": "^0.7.0",
+    "grunt-cli": "^1.2.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-conventional-changelog": "^6.1.0",
     "grunt-conventional-github-releaser": "^0.5.0",
