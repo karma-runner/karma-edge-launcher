@@ -3,14 +3,12 @@ var osHomedir = require('os-homedir')
 var proxyquire = require('proxyquire')
 
 describe('launcher', function () {
-  var EventEmitter, EdgeLauncher, injector, launcher, module
+  var EdgeLauncher, injector, launcher, module
 
   beforeEach(function () {
-    EventEmitter = require('../node_modules/karma/lib/events').EventEmitter
     EdgeLauncher = require('..')
     module = {
       baseBrowserDecorator: ['value', function () {}],
-      emitter: ['value', new EventEmitter()],
       logger: [
         'value', {
           create: function () {
@@ -20,8 +18,7 @@ describe('launcher', function () {
             }
           }
         }
-      ],
-      args: ['value', []]
+      ]
     }
   })
 
