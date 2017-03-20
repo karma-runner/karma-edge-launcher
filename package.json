@@ -20,6 +20,9 @@
   "peerDependencies": {
     "karma": ">=0.9"
   },
+  "engines": {
+    "node": ">=0.10.0"
+  },
   "license": "MIT",
   "bugs": "https://github.com/nickmccurdy/karma-edge-launcher/issues",
   "homepage": "https://github.com/nickmccurdy/karma-edge-launcher",
