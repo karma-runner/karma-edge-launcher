@@ -1,3 +1,7 @@
+var chai = require('chai')
+var expect = chai.expect
+chai.use(require('chai-fs'))
+
 var di = require('di')
 var osHomedir = require('os-homedir')
 var proxyquire = require('proxyquire')

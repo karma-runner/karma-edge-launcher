@@ -2,10 +2,6 @@
   "env": {
     "mocha": true
   },
-  "globals": {
-    "expect": false,
-    "should": false
-  },
   "rules": {
     "no-unused-expressions": 0
   }
