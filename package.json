@@ -4,7 +4,7 @@
   "description": "A Karma plugin. Launcher for Microsoft Edge.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "grunt"
   },
   "repository": "nickmccurdy/karma-edge-launcher",
   "keywords": [
@@ -21,34 +21,35 @@
     "karma": ">=0.9"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4"
   },
   "license": "MIT",
   "bugs": "https://github.com/nickmccurdy/karma-edge-launcher/issues",
   "homepage": "https://github.com/nickmccurdy/karma-edge-launcher",
   "devDependencies": {
-    "chai": "^1.9.2",
-    "chai-fs": "^0.1.0",
+    "chai": "^3.5.0",
+    "chai-fs": "^1.0.0",
     "di": "^0.0.1",
-    "eslint": "^2.4.0",
-    "eslint-config-standard": "^5.1.0",
-    "eslint-plugin-promise": "^1.1.0",
-    "eslint-plugin-react": "^4.2.1",
-    "eslint-plugin-standard": "^1.3.2",
-    "grunt": "^0.4.1",
-    "grunt-auto-release": "^0.0.6",
-    "grunt-bump": "^0.7.0",
+    "eslint": "^3.18.0",
+    "eslint-config-standard": "^7.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^6.10.1",
+    "eslint-plugin-standard": "^2.1.1",
+    "grunt": "^1.0.1",
+    "grunt-auto-release": "^0.0.7",
+    "grunt-bump": "^0.8.0",
+    "grunt-cli": "^1.2.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-conventional-changelog": "^6.1.0",
-    "grunt-conventional-github-releaser": "^0.5.0",
-    "grunt-eslint": "^18.0.0",
+    "grunt-conventional-github-releaser": "^1.0.0",
+    "grunt-eslint": "^19.0.0",
     "grunt-npm": "^0.0.2",
     "grunt-simple-mocha": "^0.4.0",
     "karma": "1.x || ^0.13.22",
     "load-grunt-tasks": "^3.2.0",
     "os-homedir": "^1.0.1",
     "proxyquire": "^1.7.10",
-    "sinon": "^1.14.1",
+    "sinon": "^2.0.0",
     "sinon-chai": "^2.8.0"
   },
   "contributors": [
