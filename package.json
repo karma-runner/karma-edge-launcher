@@ -33,13 +33,10 @@
     "eslint": "^3.18.0",
     "eslint-config-standard": "^7.1.0",
     "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-react": "^6.10.1",
     "eslint-plugin-standard": "^2.1.1",
     "grunt": "^1.0.1",
-    "grunt-auto-release": "^0.0.7",
     "grunt-bump": "^0.8.0",
     "grunt-cli": "^1.2.0",
-    "grunt-contrib-watch": "^1.0.0",
     "grunt-conventional-changelog": "^6.1.0",
     "grunt-conventional-github-releaser": "^1.0.0",
     "grunt-eslint": "^19.0.0",
@@ -48,9 +45,7 @@
     "karma": "1.x || ^0.13.22",
     "load-grunt-tasks": "^3.2.0",
     "os-homedir": "^1.0.1",
-    "proxyquire": "^1.7.10",
-    "sinon": "^2.0.0",
-    "sinon-chai": "^2.8.0"
+    "proxyquire": "^1.7.10"
   },
   "contributors": [
     "Nick McCurdy <thenickperson@gmail.com>",

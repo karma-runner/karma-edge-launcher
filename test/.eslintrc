@@ -4,8 +4,7 @@
   },
   "globals": {
     "expect": false,
-    "should": false,
-    "sinon": false
+    "should": false
   },
   "rules": {
     "no-unused-expressions": 0
