@@ -3,7 +3,7 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/nickmccurdy/karma-edge-launcher)
  [![npm version](https://img.shields.io/npm/v/karma-edge-launcher.svg?style=flat-square)](https://www.npmjs.com/package/karma-edge-launcher) [![npm downloads](https://img.shields.io/npm/dm/karma-edge-launcher.svg?style=flat-square)](https://www.npmjs.com/package/karma-edge-launcher)
 
-[![Build Status](https://img.shields.io/travis/nickmccurdy/karma-edge-launcher/master.svg?style=flat-square)](https://travis-ci.org/nickmccurdy/karma-edge-launcher) [![Dependency Status](https://img.shields.io/david/nickmccurdy/karma-edge-launcher.svg?style=flat-square)](https://david-dm.org/nickmccurdy/karma-edge-launcher) [![devDependency Status](https://img.shields.io/david/dev/nickmccurdy/karma-edge-launcher.svg?style=flat-square)](https://david-dm.org/nickmccurdy/karma-edge-launcher#info=devDependencies)
+[![Build Status](https://img.shields.io/travis/nickmccurdy/karma-edge-launcher/master.svg?style=flat-square)](https://travis-ci.org/nickmccurdy/karma-edge-launcher) [![Build Status](https://img.shields.io/appveyor/ci/nickmccurdy/karma-edge-launcher/master.svg?style=flat-square)](https://ci.appveyor.com/project/nickmccurdy/karma-edge-launcher) [![Dependency Status](https://img.shields.io/david/nickmccurdy/karma-edge-launcher.svg?style=flat-square)](https://david-dm.org/nickmccurdy/karma-edge-launcher) [![devDependency Status](https://img.shields.io/david/dev/nickmccurdy/karma-edge-launcher.svg?style=flat-square)](https://david-dm.org/nickmccurdy/karma-edge-launcher#info=devDependencies)
 
 > Launcher for Microsoft Edge.
 
