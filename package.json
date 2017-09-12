@@ -6,7 +6,7 @@
   "scripts": {
     "test": "grunt"
   },
-  "repository": "nickmccurdy/karma-edge-launcher",
+  "repository": "karma-runner/karma-edge-launcher",
   "keywords": [
     "karma-plugin",
     "karma-launcher",
@@ -24,8 +24,8 @@
     "node": ">=4"
   },
   "license": "MIT",
-  "bugs": "https://github.com/nickmccurdy/karma-edge-launcher/issues",
-  "homepage": "https://github.com/nickmccurdy/karma-edge-launcher",
+  "bugs": "https://github.com/karma-runner/karma-edge-launcher/issues",
+  "homepage": "https://github.com/karma-runner/karma-edge-launcher",
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-fs": "^1.0.0",
