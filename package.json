@@ -46,8 +46,8 @@
     "proxyquire": "^1.7.10"
   },
   "contributors": [
-    "Nick McCurdy <thenickperson@gmail.com>",
     "Nick McCurdy <nick@nickmccurdy.com>",
+    "Nick McCurdy <thenickperson@gmail.com>",
     "Vojta Jina <vojta.jina@gmail.com>",
     "Mark Ethan Trostler <mark@zzo.com>",
     "sarychev <dizel3d@gmail.com>",
@@ -55,11 +55,11 @@
     "dignifiedquire <dignifiedquire@gmail.com>",
     "Sylvain Hamel <sylvainhamel0@gmail.com>",
     "Friedel Ziegelmayer <dignifiedquire@gmail.com>",
-    "Andreas Krummsdorf <a.krummsdorf@litixsoft.de>",
+    "harimambura <harimambura@gmail.com>",
     "Barak Haim <barak.h@walkme.com>",
-    "Christopher Currie <ccurrie@impresys.com>",
     "Marcos Cáceres <marcos+github@marcosc.com>",
+    "Andreas Krummsdorf <a.krummsdorf@litixsoft.de>",
     "Nikita Khomyakov <dr.evil@krtn.eu>",
-    "harimambura <harimambura@gmail.com>"
+    "Christopher Currie <ccurrie@impresys.com>"
   ]
 }
