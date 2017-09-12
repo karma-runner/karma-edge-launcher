@@ -7,7 +7,7 @@
 
 > Launcher for Microsoft Edge.
 
-This is a fork of the [launcher for Internet Explorer](https://github.com/karma-runner/karma-ie-launcher).
+This is a fork of the [launcher for Internet Explorer](https://github.com/karma-runner/karma-ie-launcher). Originally located at [nickmccurdy/karma-edge-launcher](https://github.com/nickmccurdy/karma-edge-launcher).
 
 Based on [edge-launcher](https://github.com/MicrosoftEdge/edge-launcher).
 
