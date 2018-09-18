@@ -27,6 +27,6 @@ catch [ Microsoft.PowerShell.Commands.ProcessCommandException ]
 }
 catch
 {
-    Write-Output "Karme-edge-launcher: An unexpected error occure."
+    Write-Output "An unexpected error occure."
     exit 1
 }
