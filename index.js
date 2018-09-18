@@ -23,8 +23,9 @@ function EdgeBrowser (baseBrowserDecorator, logger) {
     })
   }
 
+  // Use start_edge script path as powershell argument, and url as script argument
   this._getOptions = function (url) {
-    return [url, '-k']
+    return [ startScriptPath, url ]
   }
 
   var baseOnProcessExit = this._onProcessExit
