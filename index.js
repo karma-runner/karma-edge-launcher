@@ -7,7 +7,7 @@
 var path = require('path')
 var spawn = require('child_process').spawn
 
-var escapeRegex = new RegExp(/\\/, 'g')
+var escapeRegex = /\\/g
 var escapement = '\\\\'
 var startScriptPath = path.join(__dirname, 'scripts/start_edge.ps1').replace(escapeRegex, escapement)
 var stopScriptPath = path.join(__dirname, 'scripts/stop_edge.ps1').replace(escapeRegex, escapement)
