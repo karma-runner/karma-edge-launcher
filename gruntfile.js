@@ -8,7 +8,7 @@ module.exports = function (grunt) {
       },
       unit: {
         src: [
-          'test/*.spec.js'
+          'test/launchers/*.spec.js'
         ]
       }
     },
