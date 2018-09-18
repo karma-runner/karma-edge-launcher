@@ -13,10 +13,8 @@ var startScriptPath = path.join(__dirname, 'scripts/start_edge.ps1').replace(esc
 var stopScriptPath = path.join(__dirname, 'scripts/stop_edge.ps1').replace(escapeRegex, escapement)
 
 // Constructor
-function EdgeBrowser (baseBrowserDecorator, logger) {
+function EdgeBrowser (baseBrowserDecorator) {
   baseBrowserDecorator(this)
-
-  var log = logger.create('launcher')
 
   var self = this
 
@@ -58,7 +56,7 @@ EdgeBrowser.prototype = {
   ENV_CMD: 'EDGE_BIN'
 }
 
-EdgeBrowser.$inject = ['baseBrowserDecorator', 'logger']
+EdgeBrowser.$inject = ['baseBrowserDecorator']
 
 // Publish di module
 // -----------------
