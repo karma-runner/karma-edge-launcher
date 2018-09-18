@@ -11,7 +11,7 @@ $MicrosoftEdgeProcess = Get-Process "MicrosoftEdge" -ErrorAction SilentlyContinu
 $MicrosoftEdgeCPProcess = Get-Process "MicrosoftEdgeCP" -ErrorAction SilentlyContinue
 if( $MicrosoftEdgeProcess -or $MicrosoftEdgeCPProcess ) {
     Write-Output "An instance of Windows Edge browser is already running. Please close it and try again."
-    return
+    exit 1
 }
 
 # Start our Microsoft Edge instance
@@ -23,10 +23,10 @@ try
 catch [ Microsoft.PowerShell.Commands.ProcessCommandException ]
 {
     Write-Output "Unable to wait for Microsoft Edge process."
-    return
+    exit 1
 }
 catch
 {
     Write-Output "Karme-edge-launcher: An unexpected error occure."
-    return
+    exit 1
 }
