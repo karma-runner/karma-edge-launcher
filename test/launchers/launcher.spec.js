@@ -18,8 +18,8 @@ var EventEmitter = require('events').EventEmitter
 // Decorators
 var shortcutFunction = function () { return function (launcher) {} }
 var baseDecorator = require('../../node_modules/karma/lib/launchers/base.js').decoratorFactory
-var captureTimeoutDecorator = shortcutFunction // require('../node_modules/karma/lib/launchers/capture_timeout').decoratorFactory
-var retryDecorator = shortcutFunction // require('../node_modules/karma/lib/launchers/retry').decoratorFactory
+var captureTimeoutDecorator = shortcutFunction // require('../../node_modules/karma/lib/launchers/capture_timeout').decoratorFactory
+var retryDecorator = shortcutFunction // require('../../node_modules/karma/lib/launchers/retry').decoratorFactory
 var processDecorator = require('../../node_modules/karma/lib/launchers/process').decoratorFactory
 var baseBrowserDecoratorFactory = function (baseLauncherDecorator, captureTimeoutLauncherDecorator, retryLauncherDecorator, processLauncherDecorator, processKillTimeout) {
   return function (launcher) {
