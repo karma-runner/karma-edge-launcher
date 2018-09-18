@@ -188,8 +188,15 @@ describe('launcher', function () {
 
     it('should spawn powershell stop_edge.ps1 script', function (done) {
       onProcessExit()
-      expect(childProcessCmd).to.equal('powershell.exe')
-      expect(path.normalize(childProcessArgs[0])).to.be.a.file()
+
+      var powershellPath = path.normalize(childProcessCmd)
+      expect(powershellPath).to.be.a.file()
+      expect(powershellPath).to.include('powershell.exe')
+
+      var scriptPath = path.normalize(childProcessArgs[0])
+      expect(scriptPath).to.be.a.file()
+      expect(scriptPath).to.include('stop_edge.ps1')
+
       done()
     })
   })
