@@ -151,9 +151,14 @@ describe('launcher', function () {
     it('should return the path to powershell script start_edge.ps1 and the given URL for launching Edge', function (done) {
       var url = 'http://foo.bar/baz/?qux=123'
       var options = getOptions(url, module)
-      expect(path.normalize(options[0])).to.be.a.file()
-      expect(options[1]).to.be.equal(url)
-      expect(options[1]).to.have.protocol('http')
+
+      var powershellPath = path.normalize(options[0])
+      expect(powershellPath).to.be.a.file()
+      expect(powershellPath).to.include('start_edge.ps1')
+
+      var optionUrl = options[1]
+      expect(optionUrl).to.be.equal(url)
+      expect(optionUrl).to.have.protocol('http')
             // Wait for it, see https://github.com/lennym/chai-url/issues/4
             // expect(options[1]).to.be.a.url()
       done()
