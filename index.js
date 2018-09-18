@@ -49,7 +49,7 @@ function EdgeBrowser (baseBrowserDecorator) {
 EdgeBrowser.prototype = {
   name: 'Edge',
   DEFAULT_CMD: {
-    win32: 'powershell.exe'
+    win32: 'C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe'
   },
   ENV_CMD: 'EDGE_BIN'
 }
