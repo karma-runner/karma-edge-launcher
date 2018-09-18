@@ -18,8 +18,8 @@ var EventEmitter = require('events').EventEmitter
 // Decorators
 var shortcutFunction = function () { return function (launcher) {} }
 var baseDecorator = require('../../node_modules/karma/lib/launchers/base.js').decoratorFactory
-var captureTimeoutDecorator = shortcutFunction // require('../node_modules/karma/lib/launchers/capture_timeout').decoratorFactory
-var retryDecorator = shortcutFunction // require('../node_modules/karma/lib/launchers/retry').decoratorFactory
+var captureTimeoutDecorator = shortcutFunction // require('../../node_modules/karma/lib/launchers/capture_timeout').decoratorFactory
+var retryDecorator = shortcutFunction // require('../../node_modules/karma/lib/launchers/retry').decoratorFactory
 var processDecorator = require('../../node_modules/karma/lib/launchers/process').decoratorFactory
 var baseBrowserDecoratorFactory = function (baseLauncherDecorator, captureTimeoutLauncherDecorator, retryLauncherDecorator, processLauncherDecorator, processKillTimeout) {
   return function (launcher) {
@@ -151,9 +151,14 @@ describe('launcher', function () {
     it('should return the path to powershell script start_edge.ps1 and the given URL for launching Edge', function (done) {
       var url = 'http://foo.bar/baz/?qux=123'
       var options = getOptions(url, module)
-      expect(path.normalize(options[0])).to.be.a.file()
-      expect(options[1]).to.be.equal(url)
-      expect(options[1]).to.have.protocol('http')
+
+      var powershellPath = path.normalize(options[0])
+      expect(powershellPath).to.be.a.file()
+      expect(powershellPath).to.include('start_edge.ps1')
+
+      var optionUrl = options[1]
+      expect(optionUrl).to.be.equal(url)
+      expect(optionUrl).to.have.protocol('http')
             // Wait for it, see https://github.com/lennym/chai-url/issues/4
             // expect(options[1]).to.be.a.url()
       done()
@@ -183,8 +188,15 @@ describe('launcher', function () {
 
     it('should spawn powershell stop_edge.ps1 script', function (done) {
       onProcessExit()
-      expect(childProcessCmd).to.equal('powershell.exe')
-      expect(path.normalize(childProcessArgs[0])).to.be.a.file()
+
+      var powershellPath = path.normalize(childProcessCmd)
+      expect(powershellPath).to.be.a.file()
+      expect(powershellPath).to.include('powershell.exe')
+
+      var scriptPath = path.normalize(childProcessArgs[0])
+      expect(scriptPath).to.be.a.file()
+      expect(scriptPath).to.include('stop_edge.ps1')
+
       done()
     })
   })

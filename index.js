@@ -31,7 +31,7 @@ function EdgeBrowser (baseBrowserDecorator) {
       baseOnProcessExit(code, errorOutput)
     } else {
       // Start stop process to close edge gracefully
-      var stopProcess = spawn('powershell.exe', [ stopScriptPath ])
+      var stopProcess = spawn(self.DEFAULT_CMD.win32, [ stopScriptPath ])
 
       stopProcess.stdout.on('data', self._onStdout)
 
