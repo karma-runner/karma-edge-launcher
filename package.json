@@ -14,9 +14,7 @@
     "edge"
   ],
   "author": "Nick McCurdy <nick@nickmccurdy.com> (http://nickmccurdy.com/)",
-  "dependencies": {
-    "edge-launcher": "1.2.2"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "karma": ">=0.9"
   },
