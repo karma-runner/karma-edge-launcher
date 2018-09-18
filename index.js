@@ -40,7 +40,7 @@ function EdgeBrowser (baseBrowserDecorator, logger) {
 EdgeBrowser.prototype = {
   name: 'Edge',
   DEFAULT_CMD: {
-    win32: require.resolve('edge-launcher/dist/x86/MicrosoftEdgeLauncher.exe')
+    win32: 'powershell.exe'
   },
   ENV_CMD: 'EDGE_BIN'
 }
