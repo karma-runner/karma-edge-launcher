@@ -14,9 +14,7 @@
     "edge"
   ],
   "author": "Nick McCurdy <nick@nickmccurdy.com> (http://nickmccurdy.com/)",
-  "dependencies": {
-    "edge-launcher": "1.2.2"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "karma": ">=0.9"
   },
@@ -29,6 +27,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-fs": "^1.0.0",
+    "chai-url": "^1.0.4",
     "di": "^0.0.1",
     "eslint": "^3.18.0",
     "eslint-config-standard": "^7.1.0",
