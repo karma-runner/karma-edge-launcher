@@ -182,7 +182,7 @@ describe('launcher', function () {
         })
         injector = new di.Injector([module, EdgeLauncher])
         launcher = injector.get('launcher:Edge')
-        launcher._onProcessExit(0, '')
+        launcher._onProcessExit(0, null, '')
       }
     })
 
