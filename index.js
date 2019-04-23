@@ -33,10 +33,10 @@ function EdgeBrowser (baseBrowserDecorator) {
 
   // Override onProcessExit to manage edge shutdown
   var baseOnProcessExit = this._onProcessExit
-  this._onProcessExit = function (code, errorOutput) {
+  this._onProcessExit = function (code, signal, errorOutput) {
     // In case of error return immediatly
     if (code > 0 || errorOutput.length > 0) {
-      baseOnProcessExit(code, errorOutput)
+      baseOnProcessExit(code, signal, errorOutput)
     } else {
       // Start stop process to close edge gracefully
       var stopProcess = spawn(self.DEFAULT_CMD.win32, [ stopScriptPath ])
@@ -48,7 +48,7 @@ function EdgeBrowser (baseBrowserDecorator) {
       stopProcess.on('error', self._onStderr)
 
       stopProcess.on('exit', function (code) {
-        baseOnProcessExit(code, errorOutput)
+        baseOnProcessExit(code, signal, errorOutput)
       })
     }
   }
