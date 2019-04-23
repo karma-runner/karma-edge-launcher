@@ -7,10 +7,18 @@
 var path = require('path')
 var spawn = require('child_process').spawn
 
-var escapeRegex = /\\/g
-var escapement = '\\\\'
-var startScriptPath = path.join(__dirname, 'scripts/start_edge.ps1').replace(escapeRegex, escapement)
-var stopScriptPath = path.join(__dirname, 'scripts/stop_edge.ps1').replace(escapeRegex, escapement)
+var backslashRegex = /\\/g
+var escapeBackslash = '\\\\'
+var spaceRegex = / /g
+var escapeSpace = '` '
+var startScriptPath = path
+    .join(__dirname, 'scripts/start_edge.ps1')
+    .replace(backslashRegex, escapeBackslash)
+    .replace(spaceRegex, escapeSpace)
+var stopScriptPath = path
+    .join(__dirname, 'scripts/stop_edge.ps1')
+    .replace(backslashRegex, escapeBackslash)
+    .replace(spaceRegex, escapeSpace)
 
 // Constructor
 function EdgeBrowser (baseBrowserDecorator) {
