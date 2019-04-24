@@ -46,7 +46,17 @@ describe('launcher', function () {
       captureTimeoutLauncherDecorator: ['factory', captureTimeoutDecorator],
       retryLauncherDecorator: ['factory', retryDecorator],
       processLauncherDecorator: ['factory', processDecorator],
-      baseBrowserDecorator: ['factory', baseBrowserDecoratorFactory]
+      baseBrowserDecorator: ['factory', baseBrowserDecoratorFactory],
+      logger: [
+        'value', {
+          create: function () {
+            return {
+              error: function () {},
+              debug: function () {}
+            }
+          }
+        }
+      ]
     }
   })
 
@@ -166,24 +176,31 @@ describe('launcher', function () {
   })
 
   describe('_onProcessExit', function () {
-    var childProcessCmd, childProcessArgs, onProcessExit
+    var childProcessCmd, onProcessExit
 
     beforeEach(function () {
       onProcessExit = function () {
-        EdgeLauncher = proxyquire('../../index', {
-          child_process: {
-            spawn: function (cmd, args) {
-              childProcessCmd = cmd
-              childProcessArgs = args
-
-              return spawn(cmd, args)
-            }
+        var childProcessMock
+        childProcessMock = {
+          exec: function (cmd, s, cb) {
+            childProcessCmd = cmd
+            cb()
           }
+        }
+
+        EdgeLauncher = proxyquire('..', {
+          child_process: childProcessMock
         })
         injector = new di.Injector([module, EdgeLauncher])
         launcher = injector.get('launcher:Edge')
-        launcher._onProcessExit(0, null, '')
+        launcher._onProcessExit(1, 2, 3)
       }
+    })
+
+    it('should call taskkill', function (done) {
+      onProcessExit()
+      expect(childProcessCmd).to.equal('taskkill /t /f /im MicrosoftEdge.exe')
+      done()
     })
   })
 })
