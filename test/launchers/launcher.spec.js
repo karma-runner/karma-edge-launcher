@@ -182,7 +182,7 @@ describe('launcher', function () {
       onProcessExit = function () {
         EdgeLauncher = proxyquire('../../index', {
           child_process: {
-            exec: function (cmd, s, cb) {
+            exec: function (cmd, cb) {
               childProcessCmd = cmd
               cb()
             }
