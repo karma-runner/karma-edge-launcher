@@ -177,23 +177,20 @@ describe('launcher', function () {
 
   describe('_onProcessExit', function () {
     var childProcessCmd, onProcessExit
-
+	
     beforeEach(function () {
       onProcessExit = function () {
-        var childProcessMock
-        childProcessMock = {
-          exec: function (cmd, s, cb) {
-            childProcessCmd = cmd
-            cb()
+        EdgeLauncher = proxyquire('../../index', {
+          child_process: {
+            exec: function (cmd, s, cb) {
+              childProcessCmd = cmd
+              cb()
+            }
           }
-        }
-
-        EdgeLauncher = proxyquire('..', {
-          child_process: childProcessMock
         })
         injector = new di.Injector([module, EdgeLauncher])
         launcher = injector.get('launcher:Edge')
-        launcher._onProcessExit(1, 2, 3)
+        launcher._onProcessExit(0, null, '')
       }
     })
 
