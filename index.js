@@ -5,7 +5,7 @@
 // ------------
 
 var path = require('path')
-var spawn = require('child_process').spawn
+var exec = require('child_process').exec
 
 var backslashRegex = /\\/g
 var escapeBackslash = '\\\\'
@@ -15,16 +15,23 @@ var startScriptPath = path
     .join(__dirname, 'scripts/start_edge.ps1')
     .replace(backslashRegex, escapeBackslash)
     .replace(spaceRegex, escapeSpace)
-var stopScriptPath = path
-    .join(__dirname, 'scripts/stop_edge.ps1')
-    .replace(backslashRegex, escapeBackslash)
-    .replace(spaceRegex, escapeSpace)
 
 // Constructor
-function EdgeBrowser (baseBrowserDecorator) {
+function EdgeBrowser (baseBrowserDecorator, logger) {
   baseBrowserDecorator(this)
 
-  var self = this
+  var log = logger.create('launcher')
+
+  function killEdgeProcess (cb) {
+    exec('taskkill /t /f /im MicrosoftEdge.exe', function (err) {
+      if (err) {
+        log.error('Killing Edge process failed. ' + err)
+      } else {
+        log.debug('Killed Edge process')
+      }
+      cb()
+    })
+  }
 
   // Use start_edge script path as powershell argument, and url as script argument
   this._getOptions = function (url) {
@@ -34,23 +41,11 @@ function EdgeBrowser (baseBrowserDecorator) {
   // Override onProcessExit to manage edge shutdown
   var baseOnProcessExit = this._onProcessExit
   this._onProcessExit = function (code, signal, errorOutput) {
-    // In case of error return immediatly
-    if (code > 0 || errorOutput.length > 0) {
-      baseOnProcessExit(code, signal, errorOutput)
-    } else {
-      // Start stop process to close edge gracefully
-      var stopProcess = spawn(self.DEFAULT_CMD.win32, [ stopScriptPath ])
-
-      stopProcess.stdout.on('data', self._onStdout)
-
-      stopProcess.stderr.on('data', self._onStderr)
-
-      stopProcess.on('error', self._onStderr)
-
-      stopProcess.on('exit', function (code) {
+    killEdgeProcess(function () {
+      if (baseOnProcessExit) {
         baseOnProcessExit(code, signal, errorOutput)
-      })
-    }
+      }
+    })
   }
 }
 
@@ -62,7 +57,7 @@ EdgeBrowser.prototype = {
   ENV_CMD: 'EDGE_BIN'
 }
 
-EdgeBrowser.$inject = ['baseBrowserDecorator']
+EdgeBrowser.$inject = ['baseBrowserDecorator', 'logger']
 
 // Publish di module
 // -----------------
