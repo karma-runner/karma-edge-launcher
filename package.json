@@ -19,7 +19,7 @@
     "karma": ">=0.9"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=8"
   },
   "license": "MIT",
   "bugs": "https://github.com/karma-runner/karma-edge-launcher/issues",
