@@ -46,7 +46,17 @@ describe('launcher', function () {
       captureTimeoutLauncherDecorator: ['factory', captureTimeoutDecorator],
       retryLauncherDecorator: ['factory', retryDecorator],
       processLauncherDecorator: ['factory', processDecorator],
-      baseBrowserDecorator: ['factory', baseBrowserDecoratorFactory]
+      baseBrowserDecorator: ['factory', baseBrowserDecoratorFactory],
+      logger: [
+        'value', {
+          create: function () {
+            return {
+              error: function () {},
+              debug: function () {}
+            }
+          }
+        }
+      ]
     }
   })
 
@@ -166,37 +176,27 @@ describe('launcher', function () {
   })
 
   describe('_onProcessExit', function () {
-    var childProcessCmd, childProcessArgs, onProcessExit
-
+    var childProcessCmd, onProcessExit
+	
     beforeEach(function () {
       onProcessExit = function () {
         EdgeLauncher = proxyquire('../../index', {
           child_process: {
-            spawn: function (cmd, args) {
+            exec: function (cmd, cb) {
               childProcessCmd = cmd
-              childProcessArgs = args
-
-              return spawn(cmd, args)
+              cb()
             }
           }
         })
         injector = new di.Injector([module, EdgeLauncher])
         launcher = injector.get('launcher:Edge')
-        launcher._onProcessExit(0, '')
+        launcher._onProcessExit(0, null, '')
       }
     })
 
-    it('should spawn powershell stop_edge.ps1 script', function (done) {
+    it('should call taskkill', function (done) {
       onProcessExit()
-
-      var powershellPath = path.normalize(childProcessCmd)
-      expect(powershellPath).to.be.a.file()
-      expect(powershellPath).to.include('powershell.exe')
-
-      var scriptPath = path.normalize(childProcessArgs[0])
-      expect(scriptPath).to.be.a.file()
-      expect(scriptPath).to.include('stop_edge.ps1')
-
+      expect(childProcessCmd).to.equal('taskkill /t /f /im MicrosoftEdge.exe')
       done()
     })
   })

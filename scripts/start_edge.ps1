@@ -1,17 +1,22 @@
-<#
-@author [Tristan Valcke]{@link https://github.com/Itee}
-@license [MIT]{@link https://opensource.org/licenses/MIT}
-
-@description This script will attemp to start Microsoft Edge browser and wait the process to be detach
-#>
 param([string]$url = "")
 
-# Check if edge is already running and cancel run if one is found.
-$MicrosoftEdgeProcess = Get-Process "MicrosoftEdge" -ErrorAction SilentlyContinue
-$MicrosoftEdgeCPProcess = Get-Process "MicrosoftEdgeCP" -ErrorAction SilentlyContinue
-if( $MicrosoftEdgeProcess -or $MicrosoftEdgeCPProcess ) {
-    Write-Output "An instance of Windows Edge browser is already running. Please close it and try again."
-    exit 1
+try {
+    $MicrosoftEdgePath = Join-Path $ENV:APPDATA "..\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe" -Resolve -ErrorAction SilentlyContinue
+    if ($MicrosoftEdgePath) {
+        # Delete Edge's data folder starting from the inner most file
+        Get-ChildItem -Path $MicrosoftEdgePath -Force -Recurse |
+            Sort-Object -Property FullName -Descending |
+            Remove-Item -Recurse -Force
+    }
+
+Get-AppXPackage -Name Microsoft.MicrosoftEdge |
+    Foreach {
+        Add-AppxPackage -DisableDevelopmentMode -Register "$( $_.InstallLocation )\AppXManifest.xml" -Verbose
+    }
+}
+catch
+{
+    Write-Output "An unexpected error occured while resetting Microsoft Edge."
 }
 
 # Start our Microsoft Edge instance
@@ -19,6 +24,7 @@ try
 {
     Start-Process -FilePath "microsoft-edge:$url"
     Wait-Process -Name "MicrosoftEdge" -ErrorAction Stop
+    exit 0
 }
 catch [ Microsoft.PowerShell.Commands.ProcessCommandException ]
 {
@@ -27,6 +33,6 @@ catch [ Microsoft.PowerShell.Commands.ProcessCommandException ]
 }
 catch
 {
-    Write-Output "An unexpected error occure."
+    Write-Output "An unexpected error occured while starting Microsoft Edge."
     exit 1
 }
